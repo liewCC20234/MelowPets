@@ -1,0 +1,64 @@
+
+
+.border {
+	font-size: 1.6rem;
+	display: grid;
+	place-items: center;
+	min-height: 200px;
+	border: 8px solid;
+	padding: 1rem;
+}
+
+.full {
+	border-image: linear-gradient(45deg, turquoise, greenyellow) 1;
+}
+
+.sides {
+	border-image: linear-gradient(to left, turquoise, greenyellow) 1 0;
+}
+.sides-2 {
+	border-image: linear-gradient(to bottom, turquoise, greenyellow) 0 1;
+}
+
+.linear-repeating {
+	border-width: 10px;
+	border-image: repeating-linear-gradient(45deg, turquoise, pink 4%) 1;
+}
+
+.radial-repeating {
+	border-width: 20px;
+	border-image: repeating-radial-gradient(
+			circle at 10px,
+			turquoise,
+			pink 2px,
+			greenyellow 4px,
+			pink 2px
+		)
+		1;
+}
+
+
+
+.full-withradius {
+	position: relative;
+	background: #fff;
+
+	
+	background-clip: padding-box;
+
+	border: solid 8px transparent;
+	border-radius: 0.8rem;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		margin: -8px; /* same as border width */
+		border-radius: inherit; /* inherit container box's radius */
+		background: linear-gradient(to left, turquoise, greenyellow);
+	}
+}
